@@ -58,7 +58,7 @@
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                     <Button Text="Cargar más" 
-                            BackgroundColor="Red" 
+                            BackgroundColor="#e41b23"
                             TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             Command="{Binding MostrarMasOfertas}"/>

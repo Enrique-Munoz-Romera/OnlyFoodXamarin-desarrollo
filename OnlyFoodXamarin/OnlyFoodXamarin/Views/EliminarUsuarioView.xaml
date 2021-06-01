@@ -10,29 +10,54 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <Label Text="Eliminar usuario"
-                        FontSize="Title"
+                        FontSize="40"
+                        FontAttributes="Bold"
                         VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" />
+                        HorizontalOptions="CenterAndExpand"
+                        TextColor="#000000"/>
             <Label Text="Email"
-                        FontSize="Medium"
-                        HorizontalOptions="StartAndExpand"/>
-            <Entry Text="{Binding Usuario.Email}"
-                        IsReadOnly="True"
-                        HorizontalOptions="FillAndExpand"/>
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HorizontalOptions="StartAndExpand"
+                        TextColor="#000000"/>
+            <Frame CornerRadius="40">
+                <Entry Text="{Binding Usuario.Email}"
+                            IsReadOnly="True"
+                            HorizontalOptions="FillAndExpand"
+                            HeightRequest="40"
+                            Opacity="5"/>
+            </Frame>
             <Label Text="Username"
-                        FontSize="Medium"
-                        HorizontalOptions="StartAndExpand"/>
-            <Entry Text="{Binding Usuario.UserName}"
-                        IsReadOnly="True"
-                        HorizontalOptions="FillAndExpand"/>
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HorizontalOptions="StartAndExpand"
+                        TextColor="#000000"/>
+            <Frame CornerRadius="40">
+                <Entry Text="{Binding Usuario.UserName}"
+                            IsReadOnly="True"
+                            HorizontalOptions="FillAndExpand"
+                            HeightRequest="40"
+                            Opacity="5"/>
+            </Frame>
             <Label Text="Nombre completo"
-                        FontSize="Medium"
-                        HorizontalOptions="StartAndExpand"/>
-            <Entry Text="{Binding Fullname}"
-                        IsReadOnly="True"
-                        HorizontalOptions="FillAndExpand"/>
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HorizontalOptions="StartAndExpand"
+                        TextColor="#000000"/>
+            <Frame CornerRadius="40">
+                <Entry Text="{Binding Fullname}"
+                            IsReadOnly="True"
+                            HorizontalOptions="FillAndExpand"
+                            HeightRequest="40"
+                            Opacity="5"/>
+            </Frame>
             <Button Text="Eliminar" Command="{Binding EliminarUsuario}"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="FillAndExpand"
+                    BorderWidth="1"
+                    BorderColor="Black"
+                    BackgroundColor="#e41b23"
+                    TextColor="White"
+                    FontAttributes="Bold"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

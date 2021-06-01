@@ -10,7 +10,7 @@
 
 
     <ContentPage.Resources>
-        <ControlTemplate x:Key="CardViewControlTemplate">
+            <ControlTemplate x:Key="CardViewControlTemplate">
             <Frame BindingContext="{Binding Source={RelativeSource TemplatedParent}}"
                        BackgroundColor="{Binding CardColor}"
                        BorderColor="{Binding BorderColor}"
@@ -18,7 +18,8 @@
                        HasShadow="True"
                        Padding="8"
                        HorizontalOptions="Center"
-                       VerticalOptions="Center">
+                       VerticalOptions="Center"
+                       WidthRequest="500">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="75" />
@@ -44,7 +45,7 @@
                                FontSize="Large"
                                VerticalTextAlignment="Center"
                                HorizontalTextAlignment="End" 
-                            VerticalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
                                TextColor="{Binding CardTextColor}"/>
                     <BoxView Grid.Row="1"
                                  BackgroundColor="{Binding CardLine}"
@@ -61,6 +62,7 @@
                     <controls:HyperlinkLabel Grid.Row="3"
                            Url="{Binding CardUrl}"
                            Text="{Binding CardUrl}"
+                           TextColor="#0231ee"
                            HorizontalOptions="Center"/>
                     <Label Grid.Row="2"
                                Text="{Binding CardDescription}"
@@ -83,25 +85,47 @@
             </Frame>
         </ControlTemplate>
 
-
         <DataTemplate x:Key="PersonTemplate">
-            <controls:CardView BorderColor="Black"
-                               CardTextColor="Black"
-                               CardTitle="{Binding Titulo}"
-                               CardDescription="{Binding Descripcion}"
-                               CardCode="{Binding Codigo}"
-                               CardPrice="{Binding Precio}"
-                               CardUrl="{Binding Web}"
-                               IconImageSource="{Binding Imagen}"
-                               ControlTemplate="{StaticResource CardViewControlTemplate}" />
-        </DataTemplate>
+                <controls:CardView BorderColor="Black"
+                                   CardTextColor="Black"
+                                   CardTitle="{Binding Titulo}"
+                                   CardDescription="{Binding Descripcion}"
+                                   CardCode="{Binding Codigo}"
+                                   CardPrice="{Binding Precio}"
+                                   CardUrl="{Binding Web}"
+                                   IconImageSource="{Binding Imagen}"
+                                   ControlTemplate="{StaticResource CardViewControlTemplate}" />
+            </DataTemplate>
     </ContentPage.Resources>
-    <ScrollView>
-        <StackLayout Margin="10"
-                 BindableLayout.ItemsSource="{Binding Ofertas}"
-                 BindableLayout.ItemTemplate="{StaticResource PersonTemplate}"/>
-
-    </ScrollView>
+            <!--<StackLayout>
+                <Button Text="Cargar más" 
+                        BackgroundColor="#e41b23"
+                        TextColor="Black"
+                        HorizontalOptions="FillAndExpand"
+                        Command="{Binding MostrarMasOfertas}"/>
+            </StackLayout>-->
+    <StackLayout>
+        <ScrollView>
+            <CollectionView ItemsSource="{Binding Ofertas}"
+                                        SelectedItem="{Binding OfertaSeleccionada}"
+                                        SelectionMode="Single"
+                                        ItemTemplate="{StaticResource PersonTemplate}">
+                <!--<CollectionView.ItemTemplate>
+                    <DataTemplate>
+                    --><!--<StackLayout Margin="10"
+                     BindableLayout.ItemsSource="{Binding Ofertas}"
+                     BindableLayout.ItemTemplate="{StaticResource PersonTemplate}"/>--><!--
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>-->
+            
+            </CollectionView>
+        </ScrollView>
+        <Button Text="Cargar más" 
+                BackgroundColor="#e41b23"
+                TextColor="White"
+                HorizontalOptions="FillAndExpand"                
+                Command="{Binding MostrarMasOfertas}"/>
+    </StackLayout>
 
 
 
@@ -159,7 +183,7 @@
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                     <Button Text="Cargar más" 
-                            BackgroundColor="Red" 
+                            BackgroundColor="#e41b23"
                             TextColor="Black"
                             HorizontalOptions="FillAndExpand"
                             Command="{Binding MostrarMasOfertas}"/>

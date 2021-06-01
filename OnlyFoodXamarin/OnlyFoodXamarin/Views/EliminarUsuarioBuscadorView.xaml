@@ -12,22 +12,40 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
                 <Label Text="Eliminar usuario"
-                        FontSize="Title"
+                        FontSize="40"
+                        FontAttributes="Bold"
                         VerticalOptions="CenterAndExpand" 
-                        HorizontalOptions="CenterAndExpand" />
+                        HorizontalOptions="CenterAndExpand"
+                        TextColor="#000000" />
                 <Label Text="Buscar usuario"
-                        FontSize="Medium"
-                        HorizontalOptions="StartAndExpand"/>
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        HorizontalOptions="StartAndExpand"
+                        TextColor="#000000"/>
+            <Frame CornerRadius="40">
                 <Entry Text="{Binding Filtro}"
                         Placeholder="Introduce el email o username del usuario"
-                        HorizontalOptions="FillAndExpand"/>
-                <Button Text="Buscar"
-                        Command="{Binding BuscarUsuarios}"/>
+                        PlaceholderColor="#000000"
+                        HorizontalOptions="FillAndExpand"
+                        HeightRequest="40"
+                        Opacity="5"/>
+            </Frame>
+            <Button Text="Buscar"
+                    Command="{Binding BuscarUsuarios}"
+                    HorizontalOptions="FillAndExpand"                    
+                    CornerRadius="20"
+                    BorderWidth="1"
+                    BorderColor="#e41b23"
+                    BackgroundColor="White"
+                    TextColor="#e41b23"
+                    FontSize="20"
+                    FontAttributes="Bold"/>
                 <ScrollView>
                     <StackLayout Orientation="Vertical">
                         <ListView ItemsSource="{Binding Usuarios}" 
                                   SelectedItem="{Binding UsuarioSeleccionado}"
-                                  HasUnevenRows="True">
+                                  HasUnevenRows="True"
+                                  SeparatorColor="#e41b23">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
@@ -43,19 +61,27 @@
                                                     <ColumnDefinition Width="*"/>
                                                 </Grid.ColumnDefinitions>
                                                 <StackLayout Grid.Column="0" Spacing="0" Padding="0,5">
-                                                    <Label Text="{Binding Email}"
-                                                        FontSize="Medium"
-                                                        HorizontalOptions="Start"/>
-                                                </StackLayout>
+                                                <Label Text="{Binding Email}"
+                                                        FontSize="15"
+                                                        FontAttributes="Bold"
+                                                        HorizontalOptions="Start"
+                                                        TextColor="#000000"/>   
+                                            </StackLayout>
                                                 <StackLayout Grid.Column="1" Orientation="Vertical" Spacing="4" 
                                                                 HorizontalOptions="End" Padding="0" VerticalOptions="End">
                                                     <Label Text="{Binding UserName}"
-                                                        FontSize="Subtitle"
-                                                        HorizontalOptions="End"/>
-                                                    <Button Text="Eliminar" FontAttributes="Bold" 
+                                                        HorizontalOptions="End"
+                                                        FontSize="25"
+                                                        TextColor="#000000"/>
+                                                <Button Text="Eliminar" FontAttributes="Bold" 
                                                         Style="{DynamicResource SocialStyle}" 
-                                                        Command="{Binding BindingContext.SeleccionarUsuarioEliminar, Source={x:Reference PageEliminarUsuarioBuscador}}"/>
-                                                </StackLayout>
+                                                        Command="{Binding BindingContext.SeleccionarUsuarioEliminar, Source={x:Reference PageEliminarUsuarioBuscador}}"
+                                                        CornerRadius="20"
+                                                        BorderWidth="1"
+                                                        BorderColor="Black"
+                                                        BackgroundColor="#e41b23"
+                                                        TextColor="White"/>             
+                                            </StackLayout>
                                             </Grid>
                                         </StackLayout>
                                     </ViewCell>

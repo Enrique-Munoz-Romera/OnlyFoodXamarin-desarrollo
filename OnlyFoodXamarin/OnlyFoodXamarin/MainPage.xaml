@@ -4,7 +4,7 @@
              x:Class="OnlyFoodXamarin.MainPage">
 
     <StackLayout>
-        <Frame BackgroundColor="red" Padding="24" CornerRadius="0">
+        <Frame BackgroundColor="#e41b23" Padding="24" CornerRadius="0">
             <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
         <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
